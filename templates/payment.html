@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+</head>
+<body>
+    <form action="{{url_for('ProcessPayment')}}" method="POST"> <br>
+        <input type="text" name="CardHolder" placeholder="Card Holder Name" > <br>
+        <input name = "CreditCardNumber" type="tel" pattern="\d*" maxlength="16" placeholder="Card Number" required> <br>
+        <input name = "ExpirationDate"type="tel" pattern="\d*" maxlength="7" placeholder="MM / YY" required> <br>
+        <input name="SecurityCode" class="cc-cvc" type="tel" pattern="\d*" maxlength="4" placeholder="CVC"><br>
+        <input type="text" name = "Amount" placeholder="Enter Amount"> <br>
+        <input type="submit" value = "pay">
+    </form>
+    {% if provider %}
+        {{provider}}
+    {%endif%}
+</body>
+</html>
